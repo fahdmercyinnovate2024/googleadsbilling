@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIIMS Payment Update Required</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://aiims.com.au/wp-content/themes/aiims/images/logo.svg" alt="AIIMS Logo" class="logo">
+        </header>
+        
+        <main>
+            <div class="card">
+                <h1>Google Ads Payment Update Required</h1>
+                <p class="message">Your Google Ads payment method was declined. To ensure your campaigns continue running without interruption, please choose one of the following options:</p>
+                
+                <div class="options">
+                    <div class="option-card">
+                        <h2>Option 1: Update Google Ads Payment Method</h2>
+                        <p>Enter your new credit card details to keep your campaigns active. Your card will be securely updated in your Google Ads account.</p>
+                        <button class="btn primary-btn" onclick="showPaymentForm()">Update Payment Method</button>
+                    </div>
+
+                    <div class="option-card">
+                        <h2>Option 2: Speak with Your Account Manager</h2>
+                        <p>Have your dedicated AIIMS account manager contact you to discuss your Google Ads billing and campaign status.</p>
+                        <button class="btn secondary-btn" onclick="showCallbackForm()">Request Callback</button>
+                    </div>
+                </div>
+
+                <!-- Payment Form (Initially Hidden) -->
+                <form id="paymentForm" class="form hidden">
+                    <h2>Update Google Ads Payment Method</h2>
+                    <p class="help-text" style="margin-bottom: 2rem;">This card will be used for future Google Ads payments. Your campaigns will resume automatically once updated.</p>
+                    <div class="form-group">
+                        <label for="cardName">Cardholder Name</label>
+                        <input type="text" id="cardName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <div class="card-input-group">
+                            <input type="text" id="cardNumber" required pattern="[0-9\s]{13,23}" placeholder="XXXX XXXX XXXX XXXX">
+                            <span id="cardType" class="card-type"></span>
+                        </div>
+                        <small class="help-text">We accept Visa, Mastercard, and American Express</small>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="expiry">Expiry Date</label>
+                            <input type="text" id="expiry" placeholder="MM/YY" required>
+                            <small class="help-text">Enter as MM/YY</small>
+                        </div>
+                        <div class="form-group half">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" required pattern="[0-9]{3,4}" placeholder="123">
+                            <small class="help-text">3 digits (4 for AMEX)</small>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" class="btn primary-btn">Update Payment Method</button>
+                        <button type="button" class="btn text-btn" onclick="hidePaymentForm()">Cancel</button>
+                    </div>
+                </form>
+
+                <!-- Callback Form (Initially Hidden) -->
+                <form id="callbackForm" class="form hidden">
+                    <h2>Request a Callback</h2>
+                    <p class="help-text" style="margin-bottom: 2rem;">Your account manager will contact you to resolve the Google Ads billing issue and review your campaign status.</p>
+                    <div class="button-group">
+                        <button type="submit" class="btn primary-btn">Request Callback</button>
+                        <button type="button" class="btn text-btn" onclick="hideCallbackForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
